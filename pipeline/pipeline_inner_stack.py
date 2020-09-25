@@ -31,6 +31,13 @@ class PipelineInnerStack(core.Stack):
             )
         )
 
+        pre_prod_stage = pipeline.add_application_stage(WebServiceStage(self,'Pre-prod', env={
+            'region': 'us-east-1'
+        }))
+
+        pre_prod_stage.add_manual_approval_action(
+            action_name='PromoteToProd')
+        
         pipeline.add_application_stage(WebServiceStage(self,'Pre-prod', env={
             'region': 'us-east-1'
         }))

@@ -15,7 +15,7 @@ class PipelineInnerStack(core.Stack):
         this_dir = path.dirname(__file__)
 
         code_build_project = codebuild.PipelineProject(self, "demoServiceProject", 
-            build_spec=codebuild.BuildSpec.from_source_filename(path.join(this_dir, 'java_services\\DemoService\\buildspec.yml')))
+            build_spec=codebuild.BuildSpec.from_source_filename(path.join(this_dir, 'java_services/DemoService/buildspec.yml')))
 
         source_artifact = codepipeline.Artifact()
         cloud_assembly_artifact = codepipeline.Artifact()
